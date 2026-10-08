@@ -3,6 +3,8 @@ node_modules
 dist
 .mastra
 src/mastra/public/
+browser-recordings/
+debug-captures/
 .env.development
 .env
 .env.local
@@ -12,3 +14,10 @@ src/mastra/public/
 .vercel
 *.duckdb
 *.duckdb.wal
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/

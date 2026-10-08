@@ -8,15 +8,16 @@ import {
   Observability,
   SensitiveDataFilter,
 } from '@mastra/observability';
-import { agent } from './agents/agent';
-import { startScheduleTool, stopScheduleTool } from './tools/schedule-tools';
+import { captchaAgent } from './agents/captcha-agent';
+import { emailTokenAgent } from './agents/email-token-agent';
+import { checkAvailabilityWorkflow } from './workflows/check-availability.workflow';
 
 export const mastra = new Mastra({
   bundler: {
     externals: ['@duckdb/node-bindings'],
   },
-  agents: { agent },
-  tools: { startScheduleTool, stopScheduleTool },
+  agents: { captchaAgent, emailTokenAgent },
+  workflows: { checkAvailabilityWorkflow },
   storage: new MastraCompositeStore({
     id: 'composite-storage',
     default: new LibSQLStore({
